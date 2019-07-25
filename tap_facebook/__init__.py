@@ -37,7 +37,7 @@ TODAY = pendulum.today()
 
 INSIGHTS_MAX_WAIT_TO_START_SECONDS = 2 * 60
 INSIGHTS_MAX_WAIT_TO_FINISH_SECONDS = 30 * 60
-INSIGHTS_MAX_ASYNC_SLEEP_SECONDS = 5 * 60
+INSIGHTS_MAX_ASYNC_SLEEP_SECONDS = 15 * 60
 
 RESULT_RETURN_LIMIT = 100
 
@@ -452,7 +452,7 @@ class AdsInsights(Stream):
             is_async=True)
         status = None
         time_start = time.time()
-        sleep_time = 30
+        sleep_time = 120
         while status != "Job Completed":
             duration = time.time() - time_start
             job = job.remote_read()
